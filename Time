@@ -1,1 +1,6 @@
-
+public class Time
+{
+  private int hour;
+  private in minute;
+  
+  public int minutes until
