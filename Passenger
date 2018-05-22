@@ -10,6 +10,16 @@ public class Passenger
     this.passportId = passportId;
     pass = new BoardingPass(this, aFlight);
   }
-  
-
+  public String getName()
+  {
+    return name;
+  }
+  public String getPPID()
+  {
+    return passportId;
+  }
+  public BoardingPass getPass()
+  {
+    return pass;
+  }
 }
