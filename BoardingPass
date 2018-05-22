@@ -1,1 +1,25 @@
-
+public class BoardingPass
+{
+  private Passenger passenger;
+  private Flight flight;
+  private int seat;
+  public BoardingPass(Passenger passenger,Flight flight)
+  {
+    this.passenger=passenger;
+    this.flight=flight;
+    int len=flight.getSeatNum();
+    seat=(int)(Math.random()*(len-1))+1;
+   }
+  public Flight getFlight() 
+  {
+    return flight;
+  }
+  public Passenger getPassenger()
+  {
+    return passenger;
+  }
+  public int getSeat()
+  {
+    return seat;
+  }
+}
