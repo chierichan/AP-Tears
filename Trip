@@ -1,1 +1,18 @@
-
+public class Trip
+{
+  private ArrayList<Flight> flights;
+  
+  public int getDuration()
+  {
+    if(flights.size() ==  0)
+      return 0;
+    else
+    {
+      Time start  = flights.get(0).getDepartureTime();
+      Time end = flights.get(flights.size()-1).getArrivalTime();
+      return start.minutesUntil(end);
+  }
+  public int getShortestLayover()
+  {
+  }
+}
