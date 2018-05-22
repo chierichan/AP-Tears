@@ -1,6 +1,25 @@
 public class Time
 {
   private int hour;
-  private in minute;
+  private int min;
   
-  public int minutes until
+  public Time(int hour, int min)
+  {
+    this.hour = hour;
+    this.min = min;
+  }
+  public int minutesUntil(Time other)
+  {
+    int total = (this.hour*60)+this.min;
+    int otherTot = (other.getHour()*60)+other.getMin();
+    return otherTot-total;
+  }
+  public int getHour()
+  {
+    return hour;
+  }
+  public int getMin()
+  {
+    return min;
+  }
+}
