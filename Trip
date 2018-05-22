@@ -14,5 +14,19 @@ public class Trip
   }
   public int getShortestLayover()
   {
+    (flights.size() < 2)
+      return -1;
+    else
+    {
+      int shortest = getDuration();
+      for(int i = 0; i < flights.size()-1; i++)
+      {
+        Time arrive = flights.get(i).getArrivalTime();
+        Time leave = flights.get(i+1).getDepartureTime();
+        int layover = arrive.minutesUntil(leave);
+        if(layover < shortest)
+          shortest = layover;
+      }
+      return shortest;
   }
 }
