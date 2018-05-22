@@ -1,1 +1,24 @@
-
+public class Flight 
+{
+  private int seatNum;
+  private Time depart;
+  private Time arrive;
+  public Flight(Time depart,Time arrive,int seatNum)
+  {
+    this.depart=depart;
+    this.arrive=arrive;
+    this.seatNum=seatNum;
+   }
+  public Time getDepartureTime()
+  {
+    return depart;
+  }
+  public Time getArrivalTime()
+  {
+    return arrive;
+  }
+  public int getSeatNum()
+  {
+    return seatNum;
+  }
+}
