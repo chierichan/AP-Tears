@@ -1,36 +1,25 @@
-
-import java.util.*;
-public class Trip
+public class Passenger
 {
-  private ArrayList<Flight> flights;
+  private String name;
+  private String passportId;
+  private BoardingPass pass;
   
-  public int getDuration()
+  public Passenger(String name, String passportId, Flight aFlight)
   {
-    if(flights.size() ==  0)
-      return 0;
-    else
-    {
-      Time start  = flights.get(0).getDepartureTime();
-      Time end = flights.get(flights.size()-1).getArrivalTime();
-      return start.minutesUntil(end);
-    }
+    this.name = name;
+    this.passportId = passportId;
+    pass = new BoardingPass(this, aFlight);
   }
-  public int getShortestLayover()
+  public String getName()
   {
-    if(flights.size() < 2)
-      return -1;
-    else
-    {
-      int shortest = getDuration();
-      for(int i = 0; i < flights.size()-1; i++)
-      {
-        Time arrive = flights.get(i).getArrivalTime();
-        Time leave = flights.get(i+1).getDepartureTime();
-        int layover = arrive.minutesUntil(leave);
-        if(layover < shortest)
-          shortest = layover;
-      }
-      return shortest;
-    }
+    return name;
+  }
+  public String getPPID()
+  {
+    return passportId;
+  }
+  public BoardingPass getPass()
+  {
+    return pass;
   }
 }
