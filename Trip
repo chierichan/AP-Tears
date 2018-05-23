@@ -1,3 +1,5 @@
+
+import java.util.*;
 public class Trip
 {
   private ArrayList<Flight> flights;
@@ -11,10 +13,11 @@ public class Trip
       Time start  = flights.get(0).getDepartureTime();
       Time end = flights.get(flights.size()-1).getArrivalTime();
       return start.minutesUntil(end);
+    }
   }
   public int getShortestLayover()
   {
-    (flights.size() < 2)
+    if(flights.size() < 2)
       return -1;
     else
     {
@@ -28,5 +31,6 @@ public class Trip
           shortest = layover;
       }
       return shortest;
+    }
   }
 }
