@@ -1,23 +1,33 @@
+/*
+ * Author: Jessica C and Jamie D
+ * Date: 5.29.18
+ * Program: Passenger
+ */
+import java.util.*;
 public class Passenger
 {
   private String name;
   private String passportId;
   private BoardingPass pass;
   
+  //constructor
   public Passenger(String name, String passportId, Flight aFlight)
   {
     this.name = name;
     this.passportId = passportId;
     pass = new BoardingPass(this, aFlight);
   }
+  //returns name
   public String getName()
   {
     return name;
   }
+  //returns passport ID
   public String getPPID()
   {
     return passportId;
   }
+  //returns pass
   public BoardingPass getPass()
   {
     return pass;
