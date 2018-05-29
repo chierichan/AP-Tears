@@ -1,22 +1,32 @@
+/*
+ * Author: Jessica C and Jamie D
+ * Date: 5.29.18
+ * Program: Flight
+ */
+
 public class Flight 
 {
   private int seatNum;
   private Time depart;
   private Time arrive;
+  //constructor
   public Flight(Time depart,Time arrive,int seatNum)
   {
     this.depart=depart;
     this.arrive=arrive;
     this.seatNum=seatNum;
-   }
+  }
+  //returns departure time
   public Time getDepartureTime()
   {
     return depart;
   }
+  //returns arrival time
   public Time getArrivalTime()
   {
     return arrive;
   }
+  //returns number of seats
   public int getSeatNum()
   {
     return seatNum;
