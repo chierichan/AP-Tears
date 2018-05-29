@@ -1,9 +1,62 @@
+/*
+ * Author: Jessica C and Jamie D
+ * Date: 5.29.18
+ * Program: Time
+ */
+/*
+ * Author: Jessica C and Jamie D
+ * Date: 5.29.18
+ * Program: Time
+ */
+/*
+ * Author: Jessica C and Jamie D
+ * Date: 5.29.18
+ * Program: Time
+ */
+/*
+ * Author: Jessica C and Jamie D
+ * Date: 5.29.18
+ * Program: Trip
+ */
 
 import java.util.*;
 public class Trip
 {
-  private ArrayList<Flight> flights;
+  private ArrayList<Flight> flights = new ArrayList<Flight>();
   
+  //constructor
+  public Trip(ArrayList<Flight> fltts)
+  {
+      for(Flight flight: fltts)
+      addFlight(flight);
+  }
+  //adds a flight to list
+  public void addFlight(Flight flight)
+  {
+      if(flights.isEmpty())
+      flights.add(flight);
+      else
+      {
+          for(int i = 0; i < flights.size();i++)
+          {
+              if(flight.getDepartureTime().getHour()==flights.get(i).getDepartureTime().getHour())
+              {
+                  if((flight.getDepartureTime().getMin()<=flights.get(i).getDepartureTime().getMin()))
+                  { 
+                      flights.add(i, flight);
+                      return;
+                    }
+                }
+                else if(flight.getDepartureTime().getHour()<flights.get(i).getDepartureTime().getHour())
+                {
+                    flights.add(i, flight);
+                    return;
+                }
+            }
+          flights.add(flight);
+      }
+  }
+  //returns the duration of whole trip
   public int getDuration()
   {
     if(flights.size() ==  0)
@@ -15,6 +68,7 @@ public class Trip
       return start.minutesUntil(end);
     }
   }
+  //returns theshortest layover between flights
   public int getShortestLayover()
   {
     if(flights.size() < 2)
