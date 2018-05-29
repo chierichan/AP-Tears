@@ -1,8 +1,14 @@
+/*
+ * Author: Jessica C and Jamie D
+ * Date: 5.29.18
+ * Program: BoardingPass
+ */
 public class BoardingPass
 {
   private Passenger passenger;
   private Flight flight;
   private int seat;
+  //constructor
   public BoardingPass(Passenger passenger,Flight flight)
   {
     this.passenger=passenger;
@@ -10,16 +16,29 @@ public class BoardingPass
     int len=flight.getSeatNum();
     seat=(int)(Math.random()*(len-1))+1;
    }
+   // returns flight
   public Flight getFlight() 
   {
     return flight;
   }
+  //returns passenger
   public Passenger getPassenger()
   {
     return passenger;
   }
+  //returns seat num
   public int getSeat()
   {
     return seat;
   }
+  //returns boarding pass information
+  public String toString()
+  {
+      Time depart = passenger.getPass().getFlight().getDepartureTime();
+      Time arrive = passenger.getPass().getFlight().getArrivalTime();
+      if(depart.getMin() == 0)
+      return ("Departure: "+depart.getHour()+ ":00\tArrival: "+arrive.getHour()+":"+arrive.getMin()+"\tSeat Num: "+this.seat);
+      else
+      return ("Departure: "+depart.getHour()+ ":"+depart.getMin()+"\tArrival: "+arrive.getHour()+":"+arrive.getMin()+"\tSeat Num: "+this.seat);
+    }
 }
