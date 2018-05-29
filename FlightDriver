@@ -1,4 +1,83 @@
+/*
+ * Author: Jessica C and Jamie D
+ * Date: 5.29.18
+ * Program: Flight
+/*
+ * Author: Jessica C and Jamie D
+ * Date: 5.29.18
+ * Program: Flight
+ */
+import java.util.*;
+import java.lang.*;
+import java.text.*;
 public class FlightDriver
 {
+    public static void main()
+    {
+        Scanner scan = new Scanner(System.in);
+        DecimalFormat decFor = new DecimalFormat("00.00");
+        String name;
+        String destination;
+        Time departure = new Time(0,00);
+        Time arrival;
+        ArrayList<Flight> flights = new ArrayList<Flight>();
+        Trip trp;
+        Passenger user;
+        double price;
+        String id = "CA874896";
+        
+        //intro
+        System.out.println("WELCOME TO THE HIGH CLASS FLIGHT REGISTRATION");
+        System.out.println("Our motto is: \"We go direct!\"");
+        System.out.println();
+        System.out.println("Enter your name:");
+        name = scan.nextLine();
+        
+        //choose destination
+        System.out.println("Choose your destination:");
+        System.out.println("1. England\n2. France\n3. South Korea\n4. Taiwan");
+        destination = scan.nextLine();
+        while(!destination.equalsIgnoreCase("England") && !destination.equalsIgnoreCase("France") && !destination.equalsIgnoreCase("South Korea") && !destination.equalsIgnoreCase("Taiwan"))
+        {
+            System.out.println("Invalid choice.");
+            System.out.println("Choose your destination:");
+            System.out.println("1. England\n2. France\n3. South Korea\n4. Taiwan");
+            destination = scan.nextLine();
+        }
+        //setting price
+        if(destination.equalsIgnoreCase("England"))
+        {
+            arrival = new Time(11,30);
+            price = 8290.99;
+        }
+        else if(destination.equalsIgnoreCase("France"))
+        {
+            arrival = new Time(7,35);
+            price = 13920.99;
+        }
+        else if(destination.equalsIgnoreCase("South Korea"))
+        {
+            arrival = new Time(13,30);
+            price = 14380.99;
+        }
+        else
+        {
+            arrival = new Time(14,30);
+            price = 10220.99;
+        }
+        
+        flights.add(new Flight(departure, arrival, 40));
+        trp = new Trip(flights);
+        user = new Passenger(name, id, flights.get(0));
+        
+        //returns boarding pass info
+        System.out.println("Here is your boarding pass!");
+        System.out.println(user.getPass());
 
+        //closure
+        System.out.println("The cost of your trip is $"+decFor.format(price)+".");
+        System.out.println("Have a nice trip!");
+        System.out.println("Enjoy our high class and exquisite services.");
+        
+    }
 }
