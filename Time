@@ -1,23 +1,33 @@
+/*
+ * Author: Jessica C and Jamie D
+ * Date: 5.29.18
+ * Program: Time
+ */
+
 public class Time
 {
   private int hour;
   private int min;
   
+  //constructor
   public Time(int hour, int min)
   {
     this.hour = hour;
     this.min = min;
   }
+  //returns the minutes from this Time object to the other Time object
   public int minutesUntil(Time other)
   {
     int total = (this.hour*60)+this.min;
     int otherTot = (other.getHour()*60)+other.getMin();
     return otherTot-total;
   }
+  //returns hour
   public int getHour()
   {
     return hour;
   }
+  //returns minutes
   public int getMin()
   {
     return min;
